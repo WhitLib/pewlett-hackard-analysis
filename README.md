@@ -1,2 +1,2 @@
-# pewlett_hackard_analysis
+# pewlett-hackard-analysis
 Exploration and Analyzation of Databases Using SQL
