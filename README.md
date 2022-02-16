@@ -91,3 +91,5 @@ ORDER BY emp_no ASC;
 ````
 ## 3 Summary
 
+As Pewlett-Hackard moves into the inevitable "silver tsunami," the company should prepare to lose 72,458 employees - 50,842 of which are senior level staff. This is critical information for PH, as it will give them insight on where the largest gaps will be once the retiring employees begin to exit. With 50,842 senior level staff persons leaving, there are enough qualified employees in the departments to mentor the next generation of Pewlett-Hackard employees. 
+
