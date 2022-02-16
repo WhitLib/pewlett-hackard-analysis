@@ -93,3 +93,34 @@ ORDER BY emp_no ASC;
 
 As Pewlett-Hackard moves into the inevitable "silver tsunami," the company should prepare to lose 72,458 employees - 50,842 of which are senior level staff. This is critical information for PH, as it will give them insight on where the largest gaps will be once the retiring employees begin to exit. With 50,842 senior level staff persons leaving, there are enough qualified employees in the departments to mentor the next generation of Pewlett-Hackard employees. 
 
+Two additional queries that were created were *retiring salaries* and *average retiring salaries*. The retiring salaries table shows all the current job titles for retiring folks and their current salaries. This information could be useful for Pewlett-Hackard when analyzing budgets for department hiring and negotiating salary ranges with incoming employees. Average retiring salaries analyzes the retiring salaries table and finds the average salary per title. Paired with the retiring salaries CSV table, this information could help PH rethink the pay structure in the company and determine what salary ranges are fair and competitive within the job market. As shown in the second table below, the average salary for a manager is higher than the average salary for a senior level staff position. Similarly, the average salary for a standard engineer is higher than a senior engineer position. Pewlett-Hackard should consider reevaluating their department and salary structuring before they feel the repercussions of the silver tsunami.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/95978097/154311665-f90025f5-a2c4-442d-aebb-5704ad6aefd0.png" />
+</p>
+
+````
+SELECT ut.emp_no,
+    ut.first_name,
+    ut.last_name,
+	ut.title,
+	s.salary
+INTO retiring_salaries 
+FROM unique_titles AS ut
+INNER JOIN salaries AS s
+ON ut.emp_no = s.emp_no
+ORDER BY ut.emp_no ASC;  
+````
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/95978097/154313479-62de7136-992e-409d-96a6-afa9077c81a8.png" />
+</p>
+
+````
+SELECT rs.title,
+	AVG(rs.salary)
+-- INTO avg_retiring_salaries
+FROM retiring_salaries AS rs
+GROUP BY rs.title
+ORDER BY avg DESC;
+````
